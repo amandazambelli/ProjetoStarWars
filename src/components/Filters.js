@@ -4,7 +4,15 @@ import PlanetsContext from '../context/PlanetsContext';
 function Filters() {
   const { numericFilter, setNumericFilter } = useContext(PlanetsContext);
 
-  const [column, setColumn] = useState('population');
+  const [options, setOptions] = useState([
+    'population',
+    'orbital_period',
+    'diameter',
+    'rotation_period',
+    'surface_water',
+  ]);
+  console.log(options[0]);
+  const [column, setColumn] = useState(options[0]);
   const [comparison, setComparison] = useState('maior que');
   const [value, setValue] = useState(0);
 
@@ -15,7 +23,15 @@ function Filters() {
       value,
     };
 
-    setNumericFilter([...numericFilter, newFilter]);
+    const filtered = [...numericFilter, newFilter];
+
+    const filteredOptions = filtered.reduce((acc, prevFilter) => {
+      const newOption = acc.filter((option) => option !== prevFilter.column);
+      return newOption;
+    }, options);
+    setOptions(filteredOptions);
+    setNumericFilter(filtered);
+    setColumn(filteredOptions[0]);
   };
 
   const handleClearFilters = () => {
@@ -36,11 +52,9 @@ function Filters() {
           onChange={ ({ target }) => setColumn(target.value) }
           value={ column }
         >
-          <option value="population">population</option>
-          <option value="orbital_period">orbital_period</option>
-          <option value="diameter">diameter</option>
-          <option value="rotation_period">rotation_period</option>
-          <option value="surface_water">surface_water</option>
+          { options.map(
+            (opt) => <option key={ opt } value={ opt }>{ opt }</option>,
+          ) }
         </select>
         <select
           name="comparisonFilter"
@@ -67,14 +81,18 @@ function Filters() {
         >
           Filtrar
         </button>
-        { numericFilter.length ?
-          <button
-            data-testid="button-remove-filters"
-            type="button"
-            onClick={ handleClearFilters }
-          >
-            Limpar Filtros
-          </button> : null }
+        {
+          numericFilter.length
+            ? (
+              <button
+                data-testid="button-remove-filters"
+                type="button"
+                onClick={ handleClearFilters }
+              >
+                Limpar Filtros
+              </button>
+            ) : null
+        }
       </div>
       <div>
         { numericFilter.map(
