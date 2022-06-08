@@ -18,6 +18,14 @@ function Filters() {
     setNumericFilter([...numericFilter, newFilter]);
   };
 
+  const handleClearFilters = () => {
+    setNumericFilter([]);
+  };
+
+  const handleDeleteFilter = (index) => {
+    setNumericFilter(numericFilter.filter((filt, filtIndex) => filtIndex !== index));
+  };
+
   return (
     <div>
       <div>
@@ -59,20 +67,29 @@ function Filters() {
         >
           Filtrar
         </button>
+        { numericFilter.length ?
+          <button
+            data-testid="button-remove-filters"
+            type="button"
+            onClick={ handleClearFilters }
+          >
+            Limpar Filtros
+          </button> : null }
       </div>
       <div>
         { numericFilter.map(
           (filter, index) => (
-            <>
-              <p key={ `${filter}-${index}` }>
+            <div data-testid="filter" key={ `${filter}-${index}` }>
+              <p>
                 {`${filter.column} ${filter.comparison} ${filter.value}`}
               </p>
               <button
                 type="button"
+                onClick={ () => handleDeleteFilter(index) }
               >
                 Delete
               </button>
-            </>
+            </div>
           ),
         ) }
       </div>
