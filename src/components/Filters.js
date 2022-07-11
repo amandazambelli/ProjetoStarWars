@@ -94,7 +94,7 @@ function Filters() {
               </button>
             ) : null
         }
-        <select
+        { /* <select
           name="columnSortFilter"
           data-testid="column-sort"
           label="Ordenar"
@@ -140,7 +140,7 @@ function Filters() {
           testid="column-sort-button"
         >
           Ordenar
-        </button>
+        </button> */ }
       </div>
       <div className="p-filter-container">
         { numericFilter.map(
