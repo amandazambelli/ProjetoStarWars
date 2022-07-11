@@ -30,6 +30,7 @@ function Input() {
 
     setFilteredData(filterNumeric);
     setNumericFilter(numericFilter);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterName, numericFilter]);
 
   const handleNameChange = ({ target }) => {
