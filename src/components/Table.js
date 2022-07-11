@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import PlanetsContext from '../context/PlanetsContext';
+import './Table.css';
 
 function Table() {
   const { filteredData } = useContext(PlanetsContext);
 
   return (
-    <div>
+    <div className="table-container">
       <table>
         <thead>
           <tr>

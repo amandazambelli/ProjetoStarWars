@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import PlanetsContext from '../context/PlanetsContext';
+import './Input.css';
 
 function Input() {
   const { data, setFilteredData,
@@ -36,8 +37,9 @@ function Input() {
   };
 
   return (
-    <div>
+    <div className="div-input">
       <input
+        className="input-name"
         type="text"
         name="nameFilter"
         placeholder="Planet Name"

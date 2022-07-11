@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react';
+import { MdDelete } from 'react-icons/md';
 import PlanetsContext from '../context/PlanetsContext';
+import './Filters.css';
 
 function Filters() {
   const { numericFilter, setNumericFilter } = useContext(PlanetsContext);
@@ -11,7 +13,6 @@ function Filters() {
     'rotation_period',
     'surface_water',
   ]);
-  console.log(options[0]);
   const [column, setColumn] = useState(options[0]);
   const [comparison, setComparison] = useState('maior que');
   const [value, setValue] = useState(0);
@@ -43,8 +44,8 @@ function Filters() {
   };
 
   return (
-    <div>
-      <div>
+    <div className="filter-container">
+      <div className="filter">
         <select
           name="columnFilter"
           data-testid="column-filter"
@@ -93,11 +94,58 @@ function Filters() {
               </button>
             ) : null
         }
+        <select
+          name="columnSortFilter"
+          data-testid="column-sort"
+          label="Ordenar"
+        >
+          <option value="population">population</option>
+          <option value="orbital_period">orbital_period</option>
+          <option value="diameter">diameter</option>
+          <option value="rotation_period">rotation_period</option>
+          <option value="surface_water">surface_water</option>
+        </select>
+        <div className="radio-container">
+          <label htmlFor="ascendente">
+            <input
+              id="ascendente"
+              type="radio"
+              data-testid="column-sort-input-asc"
+              name="columnSortAsc"
+              value="ASC"
+              checked
+            />
+            <div className="custom-radio">
+              <span />
+            </div>
+            <span>Ascendente</span>
+          </label>
+          <label htmlFor="descendente">
+            <input
+              className="radio"
+              id="descendente"
+              type="radio"
+              data-testid="column-sort-input-desc"
+              name="columnSortAsc"
+              value="DESC"
+            />
+            <div className="custom-radio">
+              <span />
+            </div>
+            <span>Descendente</span>
+          </label>
+        </div>
+        <button
+          type="button"
+          testid="column-sort-button"
+        >
+          Ordenar
+        </button>
       </div>
-      <div>
+      <div className="p-filter-container">
         { numericFilter.map(
           (filter, index) => (
-            <div data-testid="filter" key={ `${filter}-${index}` }>
+            <div className="p-btn" data-testid="filter" key={ `${filter}-${index}` }>
               <p>
                 {`${filter.column} ${filter.comparison} ${filter.value}`}
               </p>
@@ -105,7 +153,7 @@ function Filters() {
                 type="button"
                 onClick={ () => handleDeleteFilter(index) }
               >
-                Delete
+                <MdDelete />
               </button>
             </div>
           ),

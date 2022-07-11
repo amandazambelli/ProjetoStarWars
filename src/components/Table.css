@@ -1,0 +1,19 @@
+.table-container {
+  overflow: scroll;
+}
+
+table, th, td {
+  border: none;
+  border-collapse: collapse;
+  color: rgb(187, 182, 182);
+  font-size: 18px;
+  padding: 20px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: center;
+  border-bottom: 1px solid rgb(81, 81, 81);
+}
+
+thead {
+  background-color: rgb(14, 13, 13);
+  font-size: 20px;
+}

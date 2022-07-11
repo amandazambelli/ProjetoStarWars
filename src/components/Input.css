@@ -1,0 +1,19 @@
+div-input {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.input-name {
+  background-color: rgb(14, 13, 13);
+  color: rgb(224, 224, 48);
+  width: 30%;
+	margin: 0 auto;
+	padding: 10px;
+	border: none;
+	margin-bottom: 10px;
+	border-radius: 50px;
+  margin-left: 35%;
+}
