@@ -19,6 +19,7 @@
       "!src/index.js"
     ]
   },
+  "homepage": "https://amandazambelli.github.io/ProjetoStarWars",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
