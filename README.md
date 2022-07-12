@@ -1,16 +1,17 @@
-# 🚧 README em construção 🚧
+# Aplicação:
 
-<!-- Olá, Tryber!
+:star: Lista com filtros de planetas do universo de Star Wars usando Context API e Hooks para controlar os estados globais. Projeto realizado no bloco de Front-End do curso da Trybe.
 
-Esse é apenas um arquivo inicial para o README do seu projeto.
 
-É essencial que você preencha esse documento por conta própria, ok?
+## Habilidades Desenvolvidas:
 
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
+- Utiliza a Context API do React para gerenciar estado.
+- Utiliza o React Hook useState;
+- Utiliza o React Hook useContext;
+- Utiliza o React Hook useEffect;
 
-⚠️ IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
 
--->
+## Melhorias:
+
+:star: Ordenar as colunas de forma ascendente ou descendente.
+A ordenação deve ser feita via filtro: um dropdown selecionará a coluna a basear a ordenação e um par de radio buttons determinará se é ascendente ou descendente.
